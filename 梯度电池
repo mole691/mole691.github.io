@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动力电池梯次利用解决方案</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.hero-section {
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.1) 100%), url('https://public.readdy.ai/ai/img_res/a36e17f5f34d01d14785f9f84fafaa3c.jpg');
+background-size: cover;
+background-position: center;
+}
+.section-title {
+position: relative;
+display: inline-block;
+margin-bottom: 2rem;
+}
+.section-title::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 0;
+width: 60px;
+height: 3px;
+background-color: #3b82f6;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- 导航栏 -->
+<header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<a href="#" class="text-3xl text-primary flex items-center">
+<i class="ri-battery-charge-line text-3xl mr-2"></i>
+</a>
+<nav class="hidden md:flex space-x-8">
+<a href="#home" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('home')">首页</a>
+<a href="#overview" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('overview')">项目概述</a>
+<a href="#advantages" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('advantages')">核心优势</a>
+<a href="#analysis" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('analysis')">行业分析</a>
+<a href="#products" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('products')">产品介绍</a>
+<a href="#contact" class="text-gray-800 hover:text-primary font-medium" onclick="scrollToSection('contact')">联系我们</a>
+</nav>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section id="home" class="hero-section min-h-screen flex items-center pt-16" style="min-height: calc(100vh - 0px);">
+<div class="container mx-auto px-4">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">动力电池梯次利用 <br>绿色能源的未来之路</h1>
+<p class="text-lg text-gray-700 mb-8">创新电池回收技术，实现资源高效循环利用，<br>为绿色能源产业注入持续发展动力</p>
+<div class="flex space-x-4">
+<a href="https://readdy.ai/home/4efda34d-65cb-4959-a028-a0d78bb90a58/7819fbae-9a23-4b00-83b4-cf181a49d0f0" data-readdy="true">
+<button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-blue-600 transition whitespace-nowrap">了解详情</button>
+</a>
+<button id="contactBtn" class="border border-gray-300 text-gray-700 px-6 py-3 !rounded-button font-medium hover:bg-gray-100 transition whitespace-nowrap">联系我们</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 项目概述 -->
+<section id="overview" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="rounded-lg overflow-hidden shadow-lg">
+<img src="https://public.readdy.ai/ai/img_res/5f505a654e1ca14cc82b2277eb2d842f.jpg" alt="电池梯次利用装置" class="w-full h-full object-cover">
+</div>
+<div>
+<h2 class="section-title text-3xl font-bold text-gray-900">项目概述</h2>
+<p class="text-gray-700 mb-6">本项目创新采用梯次利用模式，攻克退役动力电池处理难题。凭借前沿技术与科学管理，使退役电池重获价值，达成资源回收与环保双赢。</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-recycle-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-800">资源循环利用</h3>
+<p class="text-gray-600">有效回收锂、钴等稀有金属资源，减少环境污染，实现资源可持续利用</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-battery-2-charge-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-800">电池寿命延长</h3>
+<p class="text-gray-600">通过先进的电化学修复技术，显著提升电池容量，延长使用寿命</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-earth-line text-primary text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-800">环保价值</h3>
+<p class="text-gray-600">减少废弃电池处理带来的环境风险，助力碳中和目标实现</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 核心优势 -->
+<section id="advantages" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="inline-block text-3xl font-bold text-gray-900 mb-4">核心优势</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+<p class="text-gray-600 mt-4 max-w-2xl mx-auto">我们的动力电池梯次利用解决方案具备三大核心优势，为您提供全方位的技术支持与服务保障</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+<div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+<i class="ri-government-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-4">政策大力扶持</h3>
+<p class="text-gray-600">国家长期在资金、研发方面给予政策支持，助力项目稳健发展。从2010年起，国家在多个领域提供支持，推动项目持续进步。</p>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+<div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+<i class="ri-battery-charge-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-4">先进电芯修复技术</h3>
+<p class="text-gray-600">团队自研电化学修复技术，通过小电流充放电循环显著提升电池容量，延长使用寿命，实验数据证明修复效果优于传统方案。</p>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+<div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+<i class="ri-shield-check-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-4">安全可靠设计</h3>
+<p class="text-gray-600">从硬件到软件，全方位保障装置稳定安全运行。采用高主频芯片、防爆模块采集环境信息，双重监测系统保障安全，降低事故风险。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 行业分析 -->
+<section id="analysis" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="inline-block text-3xl font-bold text-gray-900 mb-4">行业背景分析</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+<p class="text-gray-600 mt-4 max-w-2xl mx-auto">新能源汽车产业发展促使动力电池退役量猛增，构建高效环保处理体系意义重大</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+<div>
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">行业发展历程</h3>
+<div class="space-y-8">
+<div class="flex">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mr-4">
+<span>2010</span>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800">新能源汽车起步阶段</h4>
+<p class="text-gray-600">国家开始推动新能源汽车发展，动力电池需求初现</p>
+</div>
+</div>
+<div class="flex">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mr-4">
+<span>2015</span>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800">电池回收意识萌芽</h4>
+<p class="text-gray-600">首批新能源汽车电池开始面临退役，回收问题逐渐显现</p>
+</div>
+</div>
+<div class="flex">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mr-4">
+<span>2018</span>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800">政策法规完善</h4>
+<p class="text-gray-600">《新能源汽车动力蓄电池回收利用管理暂行办法》出台，为产业发展提供政策支撑</p>
+</div>
+</div>
+<div class="flex">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mr-4">
+<span>2023</span>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800">产业规模化发展</h4>
+<p class="text-gray-600">电池回收市场规模扩大，技术日趋成熟，资本大量涌入</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">市场规模增长</h3>
+<div id="market-chart" class="w-full h-80 bg-white rounded-lg shadow-md"></div>
+</div>
+</div>
+<div class="bg-gray-50 p-8 rounded-lg shadow-md">
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">SWOT 分析</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-blue-50 p-6 rounded-lg">
+<h4 class="text-lg font-medium text-blue-700 mb-4">优势 (Strengths)</h4>
+<ul class="space-y-2 text-gray-700">
+<li class="flex items-start">
+<i class="ri-check-line text-blue-500 mr-2 mt-1"></i>
+<span>绿色环保，契合国家战略</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-blue-500 mr-2 mt-1"></i>
+<span>技术先进，应用场景广泛</span>
+</li>
+<li class="flex items-start">
+<i class="ri-check-line text-blue-500 mr-2 mt-1"></i>
+<span>安全可靠，售后服务完善</span>
+</li>
+</ul>
+</div>
+<div class="bg-red-50 p-6 rounded-lg">
+<h4 class="text-lg font-medium text-red-700 mb-4">劣势 (Weaknesses)</h4>
+<ul class="space-y-2 text-gray-700">
+<li class="flex items-start">
+<i class="ri-close-line text-red-500 mr-2 mt-1"></i>
+<span>产品成本相对较高</span>
+</li>
+<li class="flex items-start">
+<i class="ri-close-line text-red-500 mr-2 mt-1"></i>
+<span>面临国外品牌竞争压力</span>
+</li>
+<li class="flex items-start">
+<i class="ri-close-line text-red-500 mr-2 mt-1"></i>
+<span>规模化生产尚需时间</span>
+</li>
+</ul>
+</div>
+<div class="bg-green-50 p-6 rounded-lg">
+<h4 class="text-lg font-medium text-green-700 mb-4">机遇 (Opportunities)</h4>
+<ul class="space-y-2 text-gray-700">
+<li class="flex items-start">
+<i class="ri-arrow-up-line text-green-500 mr-2 mt-1"></i>
+<span>国家政策大力扶持</span>
+</li>
+<li class="flex items-start">
+<i class="ri-arrow-up-line text-green-500 mr-2 mt-1"></i>
+<span>市场前景广阔</span>
+</li>
+<li class="flex items-start">
+<i class="ri-arrow-up-line text-green-500 mr-2 mt-1"></i>
+<span>技术创新空间大</span>
+</li>
+</ul>
+</div>
+<div class="bg-yellow-50 p-6 rounded-lg">
+<h4 class="text-lg font-medium text-yellow-700 mb-4">威胁 (Threats)</h4>
+<ul class="space-y-2 text-gray-700">
+<li class="flex items-start">
+<i class="ri-alert-line text-yellow-500 mr-2 mt-1"></i>
+<span>行业发展面临技术瓶颈</span>
+</li>
+<li class="flex items-start">
+<i class="ri-alert-line text-yellow-500 mr-2 mt-1"></i>
+<span>市场竞争日趋激烈</span>
+</li>
+<li class="flex items-start">
+<i class="ri-alert-line text-yellow-500 mr-2 mt-1"></i>
+<span>新技术可能带来冲击</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 产品介绍 -->
+<section id="products" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="inline-block text-3xl font-bold text-gray-900 mb-4">产品介绍</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+<p class="text-gray-600 mt-4 max-w-2xl mx-auto">我们的动力电池梯次利用解决方案集成多项创新技术，提供全面的电池回收与再利用服务</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+<i class="ri-filter-2-line text-primary text-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">电池分类功能</h3>
+<p class="text-gray-600">可回收多种电池，采用实验估计法和高性能芯片、算法测算剩余容量，实现高效分类，二次包装外壳安全可靠。</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+<i class="ri-refresh-line text-primary text-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">电芯修复功能</h3>
+<p class="text-gray-600">利用电化学方法，通过小电流充放电循环提升电池容量，自主设计电源满足修复需求，显著延长电池使用寿命。</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+<i class="ri-database-2-line text-primary text-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">电池管理功能</h3>
+<p class="text-gray-600">自主设计的管理系统分上、下位机，具备数据采集等功能，用 CAN 通讯保障汽车通信，实现精准监控管理。</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+<div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-4">
+<i class="ri-alarm-warning-line text-primary text-xl"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-3">环境监测与报警</h3>
+<p class="text-gray-600">采用高主频芯片、防爆模块采集环境信息，通过 BDS 定位实现精准坐标报警，分级报警保障安全运行。</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+<div>
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">修复技术效果展示</h3>
+<div id="repair-chart" class="w-full h-80 bg-white rounded-lg shadow-md"></div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">产品流程与技术架构</h3>
+<img src="https://public.readdy.ai/ai/img_res/f6409fff3c52912208891cb7a5f7a57f.jpg" alt="产品流程图" class="w-full h-auto rounded-lg shadow-md">
+</div>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md">
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">售后服务</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h4 class="text-xl font-medium text-gray-800 mb-4">服务承诺</h4>
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-shield-check-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-700">质保期（1 年）内无偿维修或退换质量问题产品</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-customer-service-2-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-700">技术团队 24 小时待命，确保及时响应用户需求</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-tools-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-700">提供安装调试、培训、维修等全方位服务</p>
+</div>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-xl font-medium text-gray-800 mb-4">服务实施</h4>
+<ul class="space-y-4">
+<li class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-team-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-700">专业售后服务团队，接收反馈并派技术人员处理</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-700">重大项目设联络点，定期保养、跟班服务</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-feedback-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-700">多渠道响应用户意见，及时处理问题</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 联系我们 -->
+<section id="contact" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="inline-block text-3xl font-bold text-gray-900 mb-4">联系我们</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+<p class="text-gray-600 mt-4 max-w-2xl mx-auto">如果您对我们的产品和服务感兴趣，或有任何疑问，请随时联系我们</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">联系方式</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-map-pin-line text-primary text-xl"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800">公司地址</h4>
+<p class="text-gray-600">成都</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-phone-line text-primary text-xl"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800">联系电话</h4>
+<p class="text-gray-600">19982479763</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4">
+<i class="ri-mail-line text-primary text-xl"></i>
+</div>
+<div>
+<h4 class="text-lg font-medium text-gray-800">电子邮箱</h4>
+<p class="text-gray-600">luozhicheng.2282@foxmail.com</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="text-lg font-medium text-gray-800 mb-4">关注我们</h4>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition">
+<i class="ri-wechat-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition">
+<i class="ri-weibo-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition">
+<i class="ri-linkedin-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white text-gray-600 rounded-full transition">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-gray-800 mb-6">在线留言</h3>
+<form class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的姓名">
+</div>
+<div>
+<label for="phone" class="block text-sm font-medium text-gray-700 mb-1">电话</label>
+<input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的电话">
+</div>
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的邮箱">
+</div>
+<div>
+<label for="subject" class="block text-sm font-medium text-gray-700 mb-1">主题</label>
+<input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入留言主题">
+</div>
+<div>
+<label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言内容</label>
+<textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的留言内容"></textarea>
+</div>
+<button type="submit" class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-blue-600 transition whitespace-nowrap">提交留言</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- 页脚 -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div>
+<h4 class="text-xl font-semibold mb-4">关于我们</h4>
+<p class="text-gray-400">我们致力于提供创新的动力电池梯次利用解决方案，助力绿色能源产业发展，为实现碳中和目标贡献力量。</p>
+</div>
+<div>
+<h4 class="text-xl font-semibold mb-4">快速链接</h4>
+<ul class="space-y-2">
+<li><a href="#home" class="text-gray-400 hover:text-white transition" onclick="scrollToSection('home')">首页</a></li>
+<li><a href="#overview" class="text-gray-400 hover:text-white transition" onclick="scrollToSection('overview')">项目概述</a></li>
+<li><a href="#advantages" class="text-gray-400 hover:text-white transition" onclick="scrollToSection('advantages')">核心优势</a></li>
+<li><a href="#analysis" class="text-gray-400 hover:text-white transition" onclick="scrollToSection('analysis')">行业分析</a></li>
+<li><a href="#products" class="text-gray-400 hover:text-white transition" onclick="scrollToSection('products')">产品介绍</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-white transition" onclick="scrollToSection('contact')">联系我们</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xl font-semibold mb-4">联系方式</h4>
+<ul class="space-y-2">
+<li class="flex items-center">
+<i class="ri-map-pin-line mr-2"></i>
+<span class="text-gray-400">成都</span>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line mr-2"></i>
+<span class="text-gray-400">19982479763</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-2"></i>
+<span class="text-gray-400">luozhicheng.2282@foxmail.com</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-xl font-semibold mb-4">关注我们</h4>
+<div class="flex space-x-4 mb-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary text-white rounded-full transition">
+<i class="ri-wechat-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary text-white rounded-full transition">
+<i class="ri-weibo-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary text-white rounded-full transition">
+<i class="ri-linkedin-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary text-white rounded-full transition">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+<div>
+<p class="text-gray-400">订阅我们的新闻资讯</p>
+<div class="flex mt-2">
+<input type="email" class="w-full px-4 py-2 bg-gray-800 border-none rounded-l focus:outline-none focus:ring-2 focus:ring-primary" placeholder="您的邮箱地址">
+<button class="bg-primary text-white px-4 py-2 !rounded-button rounded-l-none whitespace-nowrap">订阅</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 text-center">
+<p class="text-gray-400">&copy; 2025 动力电池梯次利用解决方案. 保留所有权利.</p>
+</div>
+</div>
+</footer>
+<script>
+// 市场规模增长图表
+const marketChart = echarts.init(document.getElementById('market-chart'));
+const marketOption = {
+animation: false,
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+},
+borderRadius: 8,
+shadowColor: 'rgba(0, 0, 0, 0.1)',
+shadowBlur: 10
+},
+legend: {
+data: ['新能源汽车销量', '动力电池出货量', '退役电池量'],
+textStyle: {
+color: '#1f2937'
+},
+icon: 'roundRect',
+itemWidth: 12,
+itemHeight: 12,
+itemGap: 20
+},
+grid: {
+left: '3%',
+right: '4%',
+bottom: '3%',
+containLabel: true
+},
+xAxis: {
+type: 'category',
+boundaryGap: false,
+data: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+axisLabel: {
+color: '#1f2937'
+},
+axisLine: {
+lineStyle: {
+color: '#eaeaea'
+}
+},
+splitLine: {
+show: false
+}
+},
+yAxis: {
+type: 'value',
+axisLabel: {
+color: '#1f2937',
+formatter: '{value} 万'
+},
+axisLine: {
+show: false
+},
+splitLine: {
+lineStyle: {
+color: '#f5f5f5',
+type: 'dashed'
+}
+}
+},
+series: [
+{
+name: '新能源汽车销量',
+type: 'line',
+smooth: true,
+symbol: 'emptyCircle',
+symbolSize: 6,
+showSymbol: false,
+lineStyle: {
+width: 3,
+color: 'rgba(87, 181, 231, 1)'
+},
+areaStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [{
+offset: 0, color: 'rgba(87, 181, 231, 0.3)'
+}, {
+offset: 1, color: 'rgba(87, 181, 231, 0.05)'
+}]
+}
+},
+data: [125, 168, 220, 352, 480, 688, 820, 950]
+},
+{
+name: '动力电池出货量',
+type: 'line',
+smooth: true,
+symbol: 'emptyCircle',
+symbolSize: 6,
+showSymbol: false,
+lineStyle: {
+width: 3,
+color: 'rgba(141, 211, 199, 1)'
+},
+areaStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [{
+offset: 0, color: 'rgba(141, 211, 199, 0.3)'
+}, {
+offset: 1, color: 'rgba(141, 211, 199, 0.05)'
+}]
+}
+},
+data: [90, 130, 180, 290, 380, 550, 650, 780]
+},
+{
+name: '退役电池量',
+type: 'line',
+smooth: true,
+symbol: 'emptyCircle',
+symbolSize: 6,
+showSymbol: false,
+lineStyle: {
+width: 3,
+color: 'rgba(251, 191, 114, 1)'
+},
+areaStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [{
+offset: 0, color: 'rgba(251, 191, 114, 0.3)'
+}, {
+offset: 1, color: 'rgba(251, 191, 114, 0.05)'
+}]
+}
+},
+data: [10, 25, 45, 80, 130, 200, 280, 380]
+}
+]
+};
+marketChart.setOption(marketOption);
+// 修复技术效果展示图表
+const repairChart = echarts.init(document.getElementById('repair-chart'));
+const repairOption = {
+animation: false,
+tooltip: {
+trigger: 'axis',
+backgroundColor: 'rgba(255, 255, 255, 0.8)',
+textStyle: {
+color: '#1f2937'
+},
+borderRadius: 8,
+shadowColor: 'rgba(0, 0, 0, 0.1)',
+shadowBlur: 10
+},
+legend: {
+data: ['传统方案', '我们的技术'],
+textStyle: {
+color: '#1f2937'
+},
+icon: 'roundRect',
+itemWidth: 12,
+itemHeight: 12,
+itemGap: 20
+},
+grid: {
+left: '3%',
+right: '4%',
+bottom: '3%',
+containLabel: true
+},
+xAxis: {
+type: 'category',
+data: ['初始', '第1次', '第2次', '第3次', '第4次', '第5次'],
+axisLabel: {
+color: '#1f2937'
+},
+axisLine: {
+lineStyle: {
+color: '#eaeaea'
+}
+},
+splitLine: {
+show: false
+}
+},
+yAxis: {
+type: 'value',
+name: '电池容量恢复率(%)',
+min: 60,
+max: 100,
+axisLabel: {
+color: '#1f2937',
+formatter: '{value}%'
+},
+axisLine: {
+show: false
+},
+splitLine: {
+lineStyle: {
+color: '#f5f5f5',
+type: 'dashed'
+}
+}
+},
+series: [
+{
+name: '传统方案',
+type: 'bar',
+barWidth: '20%',
+itemStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [{
+offset: 0, color: 'rgba(141, 211, 199, 1)'
+}, {
+offset: 1, color: 'rgba(141, 211, 199, 0.7)'
+}]
+},
+borderRadius: [6, 6, 0, 0],
+shadowColor: 'rgba(0, 0, 0, 0.05)',
+shadowBlur: 5,
+shadowOffsetY: 2
+},
+data: [70, 73, 75, 77, 78, 79]
+},
+{
+name: '我们的技术',
+type: 'bar',
+barWidth: '20%',
+itemStyle: {
+color: {
+type: 'linear',
+x: 0,
+y: 0,
+x2: 0,
+y2: 1,
+colorStops: [{
+offset: 0, color: 'rgba(87, 181, 231, 1)'
+}, {
+offset: 1, color: 'rgba(87, 181, 231, 0.7)'
+}]
+},
+borderRadius: [6, 6, 0, 0],
+shadowColor: 'rgba(0, 0, 0, 0.05)',
+shadowBlur: 5,
+shadowOffsetY: 2
+},
+data: [70, 76, 82, 87, 91, 95]
+}
+]
+};
+repairChart.setOption(repairOption);
+// 窗口大小变化时重新调整图表大小
+window.addEventListener('resize', function() {
+marketChart.resize();
+repairChart.resize();
+});
+// 平滑滚动到指定部分
+function scrollToSection(sectionId) {
+event.preventDefault();
+const section = document.getElementById(sectionId);
+if (section) {
+window.scrollTo({
+top: section.offsetTop,
+behavior: 'smooth'
+});
+}
+}
+// 为页脚的链接也添加平滑滚动
+document.querySelectorAll('footer a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const sectionId = this.getAttribute('href').substring(1);
+scrollToSection(sectionId);
+});
+});
+// 联系我们按钮点击事件
+document.getElementById('contactBtn').addEventListener('click', function() {
+// 选择方式：1. 滚动到联系我们部分 2. 显示模态框
+const showModal = true; // 设置为 false 则滚动到联系我们部分
+if (showModal) {
+openContactModal();
+} else {
+scrollToSection('contact');
+}
+});
+// 创建并打开联系模态框
+function openContactModal() {
+// 创建模态框背景
+const modalOverlay = document.createElement('div');
+modalOverlay.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+modalOverlay.id = 'contactModal';
+// 创建模态框内容
+const modalContent = document.createElement('div');
+modalContent.className = 'bg-white rounded-lg shadow-xl w-full max-w-md mx-4 overflow-hidden';
+// 模态框头部
+const modalHeader = document.createElement('div');
+modalHeader.className = 'bg-primary text-white px-6 py-4 flex justify-between items-center';
+modalHeader.innerHTML = `
+<h3 class="text-xl font-semibold">联系我们</h3>
+<button id="closeModal" class="text-white hover:text-gray-200">
+<i class="ri-close-line text-xl"></i>
+</button>
+`;
+// 模态框表单
+const modalForm = document.createElement('div');
+modalForm.className = 'px-6 py-4';
+modalForm.innerHTML = `
+<form id="contactModalForm" class="space-y-4">
+<div>
+<label for="modalName" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+<input type="text" id="modalName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的姓名" required>
+</div>
+<div>
+<label for="modalPhone" class="block text-sm font-medium text-gray-700 mb-1">电话</label>
+<input type="tel" id="modalPhone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的电话" required>
+</div>
+<div>
+<label for="modalEmail" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+<input type="email" id="modalEmail" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的邮箱">
+</div>
+<div>
+<label for="modalMessage" class="block text-sm font-medium text-gray-700 mb-1">留言内容</label>
+<textarea id="modalMessage" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="请输入您的留言内容" required></textarea>
+</div>
+</form>
+<div class="mt-4 border-t border-gray-200 pt-4">
+<div class="flex items-center mb-2">
+<i class="ri-phone-line text-primary mr-2"></i>
+<span class="text-gray-700">19982479763</span>
+</div>
+<div class="flex items-center">
+<i class="ri-mail-line text-primary mr-2"></i>
+<span class="text-gray-700">luozhicheng.2282@foxmail.com</span>
+</div>
+</div>
+`;
+// 模态框底部
+const modalFooter = document.createElement('div');
+modalFooter.className = 'bg-gray-50 px-6 py-3 flex justify-end';
+modalFooter.innerHTML = `
+<button id="submitModalForm" class="bg-primary text-white px-4 py-2 !rounded-button font-medium hover:bg-blue-600 transition whitespace-nowrap">提交留言</button>
+`;
+// 组装模态框
+modalContent.appendChild(modalHeader);
+modalContent.appendChild(modalForm);
+modalContent.appendChild(modalFooter);
+modalOverlay.appendChild(modalContent);
+// 添加到页面
+document.body.appendChild(modalOverlay);
+// 关闭模态框事件
+document.getElementById('closeModal').addEventListener('click', function() {
+document.body.removeChild(modalOverlay);
+});
+// 点击模态框外部关闭
+modalOverlay.addEventListener('click', function(e) {
+if (e.target === modalOverlay) {
+document.body.removeChild(modalOverlay);
+}
+});
+// 提交表单事件
+document.getElementById('submitModalForm').addEventListener('click', function() {
+const form = document.getElementById('contactModalForm');
+const name = document.getElementById('modalName').value;
+const phone = document.getElementById('modalPhone').value;
+const message = document.getElementById('modalMessage').value;
+if (name && phone && message) {
+// 显示提交成功消息
+showSuccessMessage();
+// 移除模态框
+document.body.removeChild(modalOverlay);
+} else {
+// 简单的表单验证
+if (!name) document.getElementById('modalName').classList.add('border-red-500');
+if (!phone) document.getElementById('modalPhone').classList.add('border-red-500');
+if (!message) document.getElementById('modalMessage').classList.add('border-red-500');
+}
+});
+}
+// 显示提交成功消息
+function showSuccessMessage() {
+const successMsg = document.createElement('div');
+successMsg.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center';
+successMsg.innerHTML = `
+<i class="ri-check-line mr-2 text-xl"></i>
+<span>留言提交成功，我们将尽快与您联系！</span>
+`;
+document.body.appendChild(successMsg);
+// 3秒后自动移除
+setTimeout(() => {
+document.body.removeChild(successMsg);
+}, 3000);
+}
+</script>
+</body>
+</html>
